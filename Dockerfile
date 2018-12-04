@@ -23,6 +23,9 @@ RUN npm install --save request-promise cheerio puppeteer
 # Install dependencies (if any) in package.json
 RUN npm install
 
+# install angular
+RUN npm install -g @angular/cli
+
 # Expose port from container so host can access 3000
 EXPOSE 3000
  

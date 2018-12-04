@@ -2,7 +2,7 @@
 
 const express = require('express');
 const rp = require('request-promise');
-const url = 'https://www.fia.com/events/fia-formula-one-world-championship/season-2018/session-classifications-18'
+const url = 'https://www.fia.com/events/fia-formula-one-world-championship/season-2018/session-classifications-19'
 
 const cheerio = require('cheerio');
 // Constants
@@ -12,7 +12,11 @@ const HOST = '0.0.0.0';
 
 // App
 const app = express();
-app.get('/', (req, res) => {
+
+app.get('/', (req, res) => {  
+  res.sendFile(__dirname + '/webscraper-ui/src/app/app.component.html');
+});
+app.get('/api', (req, res) => {
   rp(url)
     .then(function(html) {
       
