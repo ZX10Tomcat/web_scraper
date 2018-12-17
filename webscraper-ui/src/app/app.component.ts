@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'webscraper-ui';
+  title = 'FIA F1 Webscraper';
 }

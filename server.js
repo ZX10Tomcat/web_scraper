@@ -12,9 +12,10 @@ const HOST = '0.0.0.0';
 
 // App
 const app = express();
+app.use(express.static(__dirname + '/webscraper-ui/dist/webscraper-ui/')); 
 
 app.get('/', (req, res) => {  
-  res.sendFile(__dirname + '/webscraper-ui/src/app/app.component.html');
+  res.sendFile(__dirname + '/webscraper-ui/dist/webscraper-ui/index.html');
 });
 app.get('/api', (req, res) => {
   rp(url)

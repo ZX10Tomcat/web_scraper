@@ -1,0 +1,11 @@
+1) User must write down URL and press "Go!"
+2) Read all types of events there and show it as a drop down list or grid with multi checkboxes.
+3) Read all  checked events and show it in the grid
+4) Buttons 
+     -"save as JSON" 
+     -"save as csv"
+
+5) save to my SOLR core. 
+
+6) See the possibility for reading all the races as datasets in AzureML. 
+
