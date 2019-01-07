@@ -26,6 +26,8 @@ RUN npm install
 # install angular
 RUN npm install -g @angular/cli
 
+RUN npm install --save angular/material2-builds angular/cdk-builds angular/animations-builds
+
 # Expose port from container so host can access 3000
 EXPOSE 3000
  

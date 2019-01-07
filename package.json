@@ -1,6 +1,6 @@
 {
   "name": "node_webscraper",
-  "version": "0.1.0",
+  "version": "0.4.0",
   "description": "Node.js webscraper Docker",
   "author": "Bogdan Samoletskyi <tomcat_iv@yahoo.com>",
   "main": "server.js",
