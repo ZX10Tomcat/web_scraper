@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/webscraper-ui/dist/webscraper-ui/index.html');
 });
 app.get('/api', (req, res) => {
-  rp(url)
+  rp(req.param('url'))
     .then(function(html) {
       
       const $ = cheerio.load(html); 

@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { FormControl} from '@angular/forms';
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient , HttpParams} from '@angular/common/http';
+import { headersToString } from 'selenium-webdriver/http';
 
 @Component({
   selector: 'app-root',
@@ -13,9 +14,11 @@ import { HttpClient} from '@angular/common/http';
 export class AppComponent {
      private data: any;  
      title = 'FIA F1 Webscraper';
-     url = new FormControl("http://fia.com")
+     url = new FormControl("http://fia.com");
+     headers : Array<string> = [];
 
-     displayedColumns: string[] = ['header'];
+     displayedColumns = {};
+     results = {};
 
     constructor(private http: HttpClient) { 
        //this.loadData();
@@ -26,11 +29,40 @@ export class AppComponent {
        this.loadData();
     } 
 
-    private loadData(): void {          
-        let data = this.http.get('http://localhost:3000/api')  
-        .subscribe((res: Response) => { 
+    private loadData(): void {
+       // Initialize Params Object
+          
+        let data = this.http.get('http://localhost:3000/api', 
+        {params: new HttpParams().set('url', this.url.value)})  
+        .subscribe((res: Response) => {            
             this.data = res;
-            console.log(res);
+            if (this.data.length < 1) {
+                alert("Cannot find any results in this URL ")
+
+            }
+         
+            let i = 0;
+            for(let event of this.data) {               
+               this.headers.push(event.header);
+               
+               let columns = [];
+               Object.keys(event.results[0]).forEach(function (key) {
+                   columns.push(key);
+               });
+               this.results[i] = event.results;
+               this.displayedColumns[i] = columns;
+               i++;
+               /*
+               for (let result of event.results) {
+
+                  Object.keys(result).forEach(function (key) {
+                     
+                     console.log("key:" + key , "result:" + result[key] );
+                  });
+               }
+               */
+
+            }           
         });  
      
 }  
