@@ -1,13 +1,11 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
-    Welcome to {{ title }}!
+    Welcome to {{ title }} with Mongo support!
   </h1>  
 </div>
 <h3>Please, enter URL for the FIA F1 page with results: </h3>
 
 <mat-form-field class="input-full-width" style="width:500px !important"> 
-    <!--<input matInput placeholder="Favorite food" value="Sushi">-->
     <input matInput #urlInput [formControl] = "url" style="width:100%" > 
 </mat-form-field> 
     <button mat-raised-button (click) = "getresult($event)">Go!</button>
@@ -23,40 +21,8 @@
                     <th mat-header-cell *matHeaderCellDef>{{disCol}}</th>
                     <td mat-cell *matCellDef="let element "> {{element[disCol]}} </td>
                     
-            </ng-container>
-              
-            <!--
-            <ng-container  matColumnDef="position">
-                <mat-header-cell *matHeaderCellDef>position</mat-header-cell>
-                <mat-cell *matCellDef="let element "> {{element[position]}}
-                </mat-cell>
-            </ng-container>
-            <ng-container matColumnDef="driver">
-                <mat-header-cell *matHeaderCellDef>driver</mat-header-cell>
-                <mat-cell *matCellDef="let element "> {{element[driver]}}
-                </mat-cell>
-            </ng-container>
-            <ng-container matColumnDef="team">
-                <mat-header-cell *matHeaderCellDef>team</mat-header-cell>
-                <mat-cell *matCellDef="let element "> {{element[team]}}
-                </mat-cell>
-            </ng-container>
-            <ng-container matColumnDef="laps">
-                <mat-header-cell *matHeaderCellDef>laps</mat-header-cell>
-                <mat-cell *matCellDef="let element "> {{element[laps]}}
-                </mat-cell>
-            </ng-container>
-            <ng-container matColumnDef="speed">
-                <mat-header-cell *matHeaderCellDef>speed</mat-header-cell>
-                <mat-cell *matCellDef="let element "> {{element[speed]}}
-                </mat-cell>
-            </ng-container>
-            <ng-container matColumnDef="laptime">
-                <mat-header-cell *matHeaderCellDef>laptime</mat-header-cell>
-                <mat-cell *matCellDef="let element "> {{element[laptime]}}
-                </mat-cell>
-            </ng-container>
-        -->
+            </ng-container>              
+            
             <tr mat-header-row *matHeaderRowDef="displayedColumns[tableIndex]"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns[tableIndex];"></tr> 
         </table>

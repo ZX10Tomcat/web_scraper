@@ -36,6 +36,7 @@ export class AppComponent {
         {params: new HttpParams().set('url', this.url.value)})  
         .subscribe((res: Response) => {            
             this.data = res;
+            console.log("data received " +this.data);
             if (this.data.length < 1) {
                 alert("Cannot find any results in this URL ")
 
@@ -51,20 +52,10 @@ export class AppComponent {
                });
                this.results[i] = event.results;
                this.displayedColumns[i] = columns;
-               i++;
-               /*
-               for (let result of event.results) {
-
-                  Object.keys(result).forEach(function (key) {
-                     
-                     console.log("key:" + key , "result:" + result[key] );
-                  });
-               }
-               */
-
+               i++;               
             }           
         });  
      
-}  
+   }  
 }
 

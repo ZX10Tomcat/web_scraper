@@ -1,7 +1,7 @@
 FROM node:8
 
 # Who(m) to blame if nothing works
-MAINTAINER tomcat_iv@yahoo.com
+LABEL Author = "tomcat_iv@yahoo.com"
 
 # Create a working directory 
 RUN mkdir -p /usr/src/app
